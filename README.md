@@ -1,5 +1,5 @@
 <div align="center">
-    <img src=".github/logo.jpg" alt="logo" height="100"/>
+    <img src=".github/logo.jpg" alt="logo" height="150"/>
 </div>
 <h1 align="center">G-SHOCK Date Checker</h1>
 <p align="center">Check your G-SHOCK production date</p>
@@ -14,21 +14,22 @@ The first 4 digits stand for the locations of factories.
 
 ~~~json
 {
-    "201A": "日本(Japan)",
-    "201B": "日本(Japan)",
-    "201C": "日本(Japan)",
-    "201D": "日本(Japan)",
-    "201F": "日本(Japan)",
-    "202A": "泰国(Thailand)",
-    "001A": "日本(Japan)",
-    "001C": "日本(Japan)",
-    "002A": "泰国(Thailand)",
-    "212A": "泰国(Thailand)",
-    "220A": "中国(China)",
-    "003A": "中国(China)",
-    "004A": "中国(China)",
-    "104A": "中国(China)",
-    "204A": "中国(China)"
+    "201A": "日本山形工厂(Yamagata, Japan)",
+    "201B": "日本甲府工厂(Kofu, Japan)",
+    "201C": "日本卡西欧工厂通用Code(Japan Universal Code)",
+    "201D": "日本山形卡西欧协力会社(Yamagata Casio Cooperation Association of Japan)",
+    "201E": "日本八王子工厂(Hachioji, Japan)",
+    "201F": "日本山形工厂(Yamagata, Japan)",
+    "202A": "泰国工厂(Thailand)",
+    "001A": "日本八王子工厂(Hachioji, Japan)",
+    "001C": "日本山形工厂(Yamagata, Japan)",
+    "002A": "泰国工厂(Thailand)",
+    "212A": "泰国工厂(Thailand)",
+    "220A": "中国广州(Guangzhou, China)",
+    "003A": "中国工厂(China)",
+    "004A": "卡西欧中国中山工厂(Casio China Zhongshan Factory)",
+    "104A": "中国工厂(China)",
+    "204A": "中国工厂(China)"
 }
 ~~~
 
@@ -56,12 +57,43 @@ The last 4 digits stand for the date of built.
 }
 ~~~
 
-### Usage
-Web page will be add later!!!!
+### Target
+This repo will provide:
+* Executable files of server
+* A web page
 
-Currently provide execute binary file of http server, or you can use the crate directly by clone the repo.
+### Server
+
+Call the only one API to get the G-Shock info.
+
+#### Response of a successful request
+
+**Example：**
+
+Get `http://localhost:8081?code=201C264B`
+
+~~~json
+{
+	"location": "日本卡西欧工厂通用Code(Japan Universal Code)",
+	"productionDate": "2012.9.20, 2022.9.21"
+}
+~~~
+
+#### Response of a failed request
+
+**Example：**
+
+Get `http://localhost:8081?code=asdasd`
+
+~~~json
+{
+	"msg": "Your input is invalid! 你的输入不合法！"
+}
+~~~
 
 #### Demo with ApiPost
 ![apipost](.github/apipost.png)
 
+
+### Web Page
 To be continued...

@@ -1,6 +1,6 @@
 use std::collections::HashMap;
 use actix_cors::Cors;
-use actix_web::{App, HttpServer, get, web::Query};
+use actix_web::{App, HttpServer, get, web::Query, Responder, HttpResponse};
 use code_parser::code_parser;
 
 
@@ -27,14 +27,18 @@ async fn main() -> std::io::Result<()> {
 }
 
 #[get("/")]
-async fn get_g_shock_info(query: Query<HashMap<String, String>>) -> String {
+async fn get_g_shock_info(query: Query<HashMap<String, String>>) -> impl Responder {
      let code = query.get("code");
      let response = match code {
          Some(value) => {
             code_parser::parse(value)
          },
-         None => "妹有获取到任何东西！ You get nothing!".to_owned()
+         None => serde_json::from_str(r#"
+         {{
+            "msg": "妹有获取到任何东西！ You get nothing!"
+         }}
+         "#).unwrap()
      };
 
-     response
+     HttpResponse::Ok().json(response)
 }

@@ -1,0 +1,15 @@
+target = "index.html"
+release = false
+dist = "dist"
+public_url = "/"
+filehash = true
+
+[serve]
+address = "127.0.0.1"
+port = 8080
+open = false
+no_autoreload = false
+
+[clean]
+dist = "dist"
+cargo = false

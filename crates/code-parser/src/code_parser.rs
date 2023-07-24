@@ -5,11 +5,17 @@ const LOCATIONS: &str = include_str!("locations.json");
 const YEAR_CODE: &str = include_str!("year.json");
 
 // parse the 8-digit code of G-SHOCK watches(printed on steel back)
-pub fn parse(code: &str) -> String{
+pub fn parse(code: &str) -> Value{
     // use regex to check g-shock 8-digit code
     let g_shock_code_regex: Regex = Regex::new(r"^[0-9]{3}[A-Z]{1}[0-9]{3}[A-Z]{1}$").unwrap();
     if !g_shock_code_regex.is_match(code) {
-        String::from("Your input is invalid! 你的输入不合法！")
+        serde_json::from_str(
+            r#"
+             {
+                "msg": "Your input is invalid! 你的输入不合法！"
+             }
+            "#
+        ).unwrap()
     } else {
         // parse first 4 digits - factory location of the product
         let product_location = &code[0..=3];
@@ -28,12 +34,24 @@ pub fn parse(code: &str) -> String{
             year_code
         );
       
-        let return_value = match result {
+        let return_value: Value = match result {
             Some(value) => {
                 let location = String::from(value);
-                format!("location(产地): {}, \nproduction date(生产日期)：{}\n(编码代表的是每一个十年，请根据你的G-Shock发售年份自行判断具体年份。)\n(Attention: the production date is definitely after the release date. Please judge it yourself.)", location, production_date)
+                let json = format!(r#"
+                {{
+                    "location": "{}",
+                    "productionDate": "{}"
+                }}
+                "#, location, &production_date[0..production_date.len() - 2]);
+                serde_json::from_str(&json[..]).unwrap()
             },
-            None => String::from("Your code is incorrect! 编码不正确，未找到结果！")
+            None => serde_json::from_str(
+                r#"
+                 {
+                    "msg": "Your code is incorrect! 编码不正确，未找到结果！"
+                 }
+                "#
+            ).unwrap()
         };
 
         return_value

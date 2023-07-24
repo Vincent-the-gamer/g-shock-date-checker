@@ -1,5 +1,6 @@
 [workspace]
 members = [
     "crates/code-parser",
-    "crates/server"
+    "crates/server",
+    "crates/frontend"
 ]
