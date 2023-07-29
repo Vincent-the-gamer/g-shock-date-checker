@@ -2,12 +2,24 @@ use std::collections::HashMap;
 use actix_cors::Cors;
 use actix_web::{App, HttpServer, get, web::Query, Responder, HttpResponse};
 use code_parser::code_parser;
-
+use std::env;
 
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
+    // use shell parameter to bind dynamic port.
+    let args: Vec<String> = env::args().collect();
+
     let host = "0.0.0.0";
-    let port = 8081;
+    let port: u16;
+    // Default 8081 if no argument is given
+    if args.len() == 1 {
+        port = 8081;
+    } else if args.len() > 1 {
+        port = (&args[1]).parse::<u16>().unwrap();
+    } else {
+        panic!("Shell parameter error!");
+    }
+
    
     println!("App running at http://{}:{}", host, port);
 

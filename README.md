@@ -14,22 +14,23 @@ The first 4 digits stand for the locations of factories.
 
 ~~~json
 {
-    "201A": "日本山形工厂(Yamagata, Japan)",
-    "201B": "日本甲府工厂(Kofu, Japan)",
-    "201C": "日本卡西欧工厂通用Code(Japan Universal Code)",
-    "201D": "日本山形卡西欧协力会社(Yamagata Casio Cooperation Association of Japan)",
-    "201E": "日本八王子工厂(Hachioji, Japan)",
-    "201F": "日本山形工厂(Yamagata, Japan)",
-    "202A": "泰国工厂(Thailand)",
-    "001A": "日本八王子工厂(Hachioji, Japan)",
-    "001C": "日本山形工厂(Yamagata, Japan)",
-    "002A": "泰国工厂(Thailand)",
-    "212A": "泰国工厂(Thailand)",
-    "220A": "中国广州(Guangzhou, China)",
-    "003A": "中国工厂(China)",
-    "004A": "卡西欧中国中山工厂(Casio China Zhongshan Factory)",
-    "104A": "中国工厂(China)",
-    "204A": "中国工厂(China)"
+    "201A": "日本山形工厂 Yamagata, Japan",
+    "201B": "日本甲府工厂 Kofu, Japan",
+    "201C": "日本卡西欧工厂通用代码  Japan Universal Code",
+    "201D": "日本山形卡西欧协力会社(合作伙伴）  Yamagata Casio Cooperation Association of Japan",
+    "201E": "日本八王子工厂  Hachioji, Japan",
+    "201F": "日本山形工厂  Yamagata, Japan",
+    "202A": "泰国工厂  Thailand",
+    "001A": "日本八王子工厂  Hachioji, Japan",
+    "001C": "日本山形工厂  Yamagata, Japan",
+    "002A": "泰国工厂  Thailand",
+    "212A": "泰国工厂  Thailand",
+    "220A": "中国广州工厂  Guangzhou, China",
+    "003A": "中国工厂  China",
+    "004A": "卡西欧中国中山工厂  Casio China Zhongshan Factory",
+    "104A": "中国工厂  China",
+    "204A": "中国工厂  China",
+    "222A": "泰国工厂  Thailand"
 }
 ~~~
 
@@ -65,6 +66,32 @@ This repo will provide:
 ### Server
 
 Call the only one API to get the G-Shock info.
+
+#### Start Server
+* Start with default port
+
+~~~shell
+# unix-like
+./g-shock-server
+
+# windows
+g-shock-server.exe
+~~~
+
+Server will run at port 8081.
+
+* Start with custom port
+
+~~~shell
+# unix-like
+./g-shock-server 2333
+
+# windows
+g-shock-server.exe 2333
+~~~
+
+Server will run at port 2333.
+
 
 #### Response of a successful request
 
