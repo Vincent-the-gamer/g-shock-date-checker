@@ -6,9 +6,11 @@ const YEAR_CODE: &str = include_str!("year.json");
 
 // parse the 8-digit code of G-SHOCK watches(printed on steel back)
 pub fn parse(code: &str) -> Value{
+    // compatible with lowercase
+    let code = code.to_uppercase();
     // use regex to check g-shock 8-digit code
     let g_shock_code_regex: Regex = Regex::new(r"^[0-9]{3}[A-Z]{1}[0-9]{3}[A-Z]{1}$").unwrap();
-    if !g_shock_code_regex.is_match(code) {
+    if !g_shock_code_regex.is_match(code.as_str()) {
         serde_json::from_str(
             r#"
              {
