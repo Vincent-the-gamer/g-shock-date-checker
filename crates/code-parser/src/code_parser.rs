@@ -61,21 +61,25 @@ pub fn parse(code: &str) -> Value{
 }
 
 // calculate date by the day of year
-fn calculate_date(mut day_of_year: &str, year_code: &str) -> String{
+fn calculate_date(day_of_year: &str, year_code: &str) -> String{
     let mut month = 0;
     let mut day = 0;
 
     let mut month_leap = 0;
     let mut day_leap = 0;
 
+    let mut day_of_year = day_of_year;
     if day_of_year.chars().nth(0) == Some('0'){
-        day_of_year = &day_of_year[1..];
         if day_of_year.chars().nth(1) == Some('0'){
             day_of_year = &day_of_year[2..];
         }
+        else {
+            day_of_year = &day_of_year[1..];
+        }
     }
 
-    let mut day_of_year: i32 = day_of_year.parse().unwrap();
+    let mut day_of_year: i32 = day_of_year.parse().expect("day of year parsed error!!");
+
     let mut day_of_year_leap: i32 = day_of_year.clone();
 
     let days_in_month = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]; 
