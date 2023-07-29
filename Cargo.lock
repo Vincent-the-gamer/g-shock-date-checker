@@ -559,8 +559,11 @@ name = "frontend"
 version = "1.0.0"
 dependencies = [
  "getrandom",
+ "gloo-console",
  "grass",
  "stylist",
+ "wasm-bindgen",
+ "web-sys",
  "yew",
 ]
 

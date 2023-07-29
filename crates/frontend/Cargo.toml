@@ -5,6 +5,9 @@ edition = "2021"
 
 [dependencies]
 getrandom = { version = "0.2.10", features = ["js"] }
+gloo-console = "0.2.3"
 grass = { version = "0.12.4", features = ["macro"] }
 stylist = { version = "0.12.1", features = ["yew","parser"] }
+wasm-bindgen = "0.2.87"
+web-sys = "0.3.64"
 yew = { version = "0.20.0", features = ["csr"] }
