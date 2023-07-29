@@ -1,4 +1,6 @@
 [workspace]
+resolver = "2"  # stylist(css parser) needs this
+
 members = [
     "crates/code-parser",
     "crates/server",
