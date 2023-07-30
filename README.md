@@ -12,6 +12,8 @@ Casio G-SHOCK watches are using an 8-digit code to indicate which factory they a
 
 The first 4 digits stand for the locations of factories.
 
+**If there's any incorrect code explanation, please raise an issue.**
+
 ~~~json
 {
     "201A": "日本山形工厂 Yamagata, Japan (Japan Y)",
@@ -60,8 +62,8 @@ The last 4 digits stand for the date of built.
 
 ### Target
 This repo will provide:
-* Executable files of server
-* A web page
+* Executable files of server.
+* A **No backend** web page.
 
 ### Server
 
@@ -71,7 +73,7 @@ Call the only one API to get the G-Shock info.
 * Start with default port
 
 ~~~shell
-# unix-like
+# unix-like OS
 ./g-shock-server
 
 # windows
@@ -101,7 +103,7 @@ Get `http://localhost:8081?code=201C264B`
 
 ~~~json
 {
-	"location": "日本卡西欧工厂通用Code(Japan Universal Code)",
+	"location": "日本卡西欧工厂通用代码  Japan Universal Code",
 	"productionDate": "2012.9.20, 2022.9.21"
 }
 ~~~
@@ -118,9 +120,21 @@ Get `http://localhost:8081?code=asdasd`
 }
 ~~~
 
-#### Demo with ApiPost
-![apipost](.github/apipost.png)
-
 
 ### Web Page
-To be continued...
+
+Web Page is deployed at [https://vincent-the-gamer.github.io/g-shock-checker-page](https://vincent-the-gamer.github.io/g-shock-checker-page)
+
+This page is written with `yew.rs`, a WASM(Web Assembly) frontend framework based on Rust. 
+
+Thanks to the WASM, this page has **NOT** requested any API, but directly bundled the algorithm of the G-SHOCK code explaining logic, which is so cool😄. I'd like to build more **No backend web pages** in the future😊.
+
+
+#### Preview
+![preview](.github/web-page-preview.png)
+
+### License
+
+This project is MIT Licensed.
+
+[License](./LICENSE)

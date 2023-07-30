@@ -1,18 +1,21 @@
 mod components;
 
-use yew::{ Html, html, function_component };
+use stylist::{yew::styled_component};
+use yew::{ Html, html };
 
 use crate::components::{
     header::Header, 
-    main::Main
+    main::Main, 
+    footer::Footer
 };
 
-#[function_component(App)]
+#[styled_component(App)]
 pub fn app() -> Html {
     html!{
         <div>
            <Header/>
            <Main/>
+           <Footer/>
         </div>
     }
 }

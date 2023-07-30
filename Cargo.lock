@@ -558,9 +558,10 @@ dependencies = [
 name = "frontend"
 version = "1.0.0"
 dependencies = [
+ "code-parser",
  "getrandom",
- "gloo-console",
  "grass",
+ "serde_json",
  "stylist",
  "wasm-bindgen",
  "web-sys",

@@ -87,6 +87,8 @@ fn calculate_date(day_of_year: &str, year_code: &str) -> String{
 
     let year_code_json: Value = serde_json::from_str(YEAR_CODE).unwrap();
     let year_last_digit: i64 = year_code_json[year_code].as_i64().unwrap();
+
+    // potential year: potential decades of each code + 0-9
     let potential_years: Vec<i64> = vec![2010 + year_last_digit, 2020 + year_last_digit];
 
 
