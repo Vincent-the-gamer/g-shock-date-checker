@@ -60,16 +60,16 @@ The last 4 digits stand for the date of built.
 }
 ~~~
 
-### Target
+# Target
 This repo will provide:
 * Executable files of server.
 * A **No backend** web page.
 
-### Server
+# Server
 
 Call the only one API to get the G-Shock info.
 
-#### Start Server
+## Start Server
 * Start with default port
 
 ~~~shell
@@ -95,7 +95,7 @@ g-shock-server.exe 2333
 Server will run at port 2333.
 
 
-#### Response of a successful request
+### Response of a successful request
 
 **Example：**
 
@@ -108,7 +108,7 @@ Get `http://localhost:8081?code=201C264B`
 }
 ~~~
 
-#### Response of a failed request
+### Response of a failed request
 
 **Example：**
 
@@ -121,7 +121,7 @@ Get `http://localhost:8081?code=asdasd`
 ~~~
 
 
-### Web Page
+# Web Page
 
 Web Page is deployed at [https://vincent-the-gamer.github.io/g-shock-checker-page](https://vincent-the-gamer.github.io/g-shock-checker-page)
 
@@ -130,10 +130,10 @@ This page is written with `yew.rs`, a WASM(Web Assembly) frontend framework base
 Thanks to the WASM, this page has **NOT** requested any API, but directly bundled the algorithm of the G-SHOCK code explaining logic, which is so cool😄. I'd like to build more **No backend web pages** in the future😊.
 
 
-#### Preview
+## Preview
 ![preview](.github/web-page-preview.png)
 
-### License
+# License
 
 This project is MIT Licensed.
 
