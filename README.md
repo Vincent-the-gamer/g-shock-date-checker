@@ -133,6 +133,27 @@ Thanks to the WASM, this page has **NOT** requested any API, but directly bundle
 ## Preview
 ![preview](.github/web-page-preview.png)
 
+# Build
+## Use GNU Make:
+~~~shell
+# frontend
+make target=frontend
+
+# server
+make target=server
+~~~
+
+
+## Manual:
+
+### Frontend
+* cd `crates/frontend`
+* `trunk build --release`
+
+### Server
+* cd `crates/server`
+* `cargo build --release`
+
 # License
 
 This project is MIT Licensed.
