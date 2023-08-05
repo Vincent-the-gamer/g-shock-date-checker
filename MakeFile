@@ -1,4 +1,5 @@
-# Use MakeFile to compile
+# Use Makefile to compile
+# Make sure your name is Makefile
 
 # frontend directory
 FRONTEND_DIR := crates/frontend/
