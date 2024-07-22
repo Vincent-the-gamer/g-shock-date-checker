@@ -4,7 +4,7 @@ version = "1.0.0"
 edition = "2021"
 
 [dependencies]
-actix-cors = "0.6.4"
-actix-web = "4.3.1"
+actix-cors = "0.6.5"
+actix-web = "4.8.0"
 code-parser = { path = "../code-parser" }
-serde_json = "1.0.103"
+serde_json = "1.0.120"
